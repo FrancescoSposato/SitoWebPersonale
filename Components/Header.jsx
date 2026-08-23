@@ -2,7 +2,7 @@ import { View, Text, StyleSheet, Pressable } from "react-native";
 import { Link, usePathname } from "expo-router";
 import { Colors } from "../constants/colors";
 import { Fonts } from "../constants/fonts";
-
+import { Layout } from "../constants/layout";
 export default function Header() {
   const pathname = usePathname();
 
@@ -57,10 +57,10 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     justifyContent: "space-between",
     alignItems: "center",
-    maxWidth: 1160,
+    maxWidth: Layout.contentMaxWidth,
+    paddingHorizontal: Layout.contentPaddingHorizontal,
     alignSelf: "center",
     width: "100%",
-    paddingHorizontal: 24,
     paddingVertical: 16,
   },
   links: {

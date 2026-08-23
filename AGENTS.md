@@ -16,3 +16,11 @@ Tassativo insegnarmi passo a passo come costruire questa applicazione.
 Non darmi subito blocchi di codice completo, a meno che non te lo chieda io. Devi farmi capire quello che sto facendo, senza esagerare con spiegazioni prolisse.
 Devo capire prima il senso di quel che sto per scrivere, e subito dopo avere il codice da applicare.
 Eccezione: per configurazioni/boilerplate ripetitivi puoi darmi subito il codice, ma spiegami sempre brevemente perché lo stiamo facendo.
+
+# CONVERSAZIONE DI RIFERIMENTO
+
+Per riprendere da terminale la conversazione principale di questo progetto (setup Expo Router, Header, colori, Git):
+
+```
+claude --resume e39f0da1-8d91-4afd-98d4-3527c2b223e9
+```
