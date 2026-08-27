@@ -11,11 +11,14 @@ export default function ProjectCard({
   status,
   linkHref,
   linkLabel,
+  style,
 }) {
   const isBig = variant === "big";
 
   return (
-    <View style={[styles.pCard, isBig ? styles.pCardBig : styles.pCardSmall]}>
+    <View
+      style={[styles.pCard, isBig ? styles.pCardBig : styles.pCardSmall, style]}
+    >
       <View style={styles.pTagRow}>
         {tags.map((tag) => (
           <Text key={tag} style={styles.pTag}>

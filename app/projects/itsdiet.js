@@ -6,10 +6,6 @@ import Kicker from "../../Components/Kicker";
 import ProjectCard from "../../Components/ProjectCard";
 import { ScrollView, View, StyleSheet } from "react-native";
 
-export default function GoCare() {
-  return (
-    <ScrollView>
-      <Footer></Footer>
-    </ScrollView>
-  );
+export default function MyITSdiet() {
+  return <ScrollView></ScrollView>;
 }

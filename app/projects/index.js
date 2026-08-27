@@ -8,7 +8,7 @@ import { StyleSheet, View, Text, ScrollView, Image } from "react-native";
 
 export default function Projects() {
   return (
-    <ScrollView>
+    <ScrollView contentContainerStyle={{ flexGrow: 1 }}>
       <View style={styles.hero}>
         <View style={styles.inner}>
           <View style={styles.heroText}>
@@ -22,50 +22,89 @@ export default function Projects() {
           </View>
         </View>
       </View>
-      <View>
-        <View style={styles.projectSection}>
-          <View style={styles.cardRow}>
-            <View style={styles.imageSquare}>
-              <Image
-                source={require("../../assets/sitoFake.png")}
-                style={styles.screenshot}
-              ></Image>
-            </View>
-            <ProjectCard
-              tags={["React Native", "Expo Router", "Web + Android"]}
-              title="Questo sito portfolio"
-              description="Tutto ciò che vedi è stato creato da me, un componente alla volta."
-              status="Concluso"
-              linkHref={"/projects/this"}
-              linkLabel={"Vai ai dettagli →"}
-            ></ProjectCard>
-          </View>
-          <View style={styles.cardRow}>
-            <ProjectCard
-              tags={[
-                "React Native",
-                "Expo Router",
-                "C#",
-                "ASP.NET Core",
-                "EF. Core",
-                "PostGree",
-              ]}
-              title="Project GoCare"
-              description="Un progetto di gruppo che facilità il contatto tra persone bisognose 
-                di un trasporto sociale e associazioni di volontariato che forniscono questo servizio."
-              status="In produzione"
-              linkHref={"/projects/gocare"}
-              linkLabel={"Vai ai dettagli →"}
-            ></ProjectCard>
-            <View style={styles.imageSquare}>
-              <Image
-                source={require("../../assets/gocare_wheel.png")}
-                style={styles.screenshot}
-              ></Image>
+      <View style={styles.projectInner}>
+        <View style={styles.projectContainer}>
+          <View style={styles.projectSection}>
+            <View style={styles.cardRow}>
+              <View style={styles.imageSquare}>
+                <Image
+                  source={require("../../assets/sitoFake.png")}
+                  style={styles.screenshot}
+                ></Image>
+              </View>
+              <ProjectCard
+                style={{ backgroundColor: Colors.light.surface2 }}
+                tags={["React Native", "Expo Router", "Web + Android"]}
+                title="Questo sito portfolio"
+                description="Tutto ciò che vedi è stato creato da me, un componente alla volta."
+                status="Concluso"
+                linkHref={"/projects/this"}
+                linkLabel={"Vai ai dettagli →"}
+              ></ProjectCard>
             </View>
           </View>
         </View>
-      </View>
+
+        <View style={styles.projectContainer2}>
+            <View style={styles.projectSection}>
+              <View style={styles.cardRow}>
+                <ProjectCard
+                  tags={[
+                    "React Native",
+                    "Expo Router",
+                    "C#",
+                    "ASP.NET Core",
+                    "EF Core",
+                    "PostGree",
+                  ]}
+                  title="Project GoCare"
+                  description="Un progetto di gruppo che facilità il contatto tra persone bisognose 
+                di un trasporto sociale e associazioni di volontariato che forniscono questo servizio."
+                  status="In costruzione"
+                  linkHref={"/projects/gocare"}
+                  linkLabel={"Vai ai dettagli →"}
+                ></ProjectCard>
+                <View style={styles.imageSquare}>
+                  <Image
+                    source={require("../../assets/gocare_wheel.png")}
+                    style={styles.screenshot}
+                  ></Image>
+                </View>
+              </View>
+            </View>
+          </View>
+          <View style={styles.projectContainer}>
+            <View style={styles.projectSection}>
+              <View style={styles.cardRow}>
+                <View style={styles.imageSquare}></View>
+                <ProjectCard
+                  style={{ backgroundColor: Colors.light.surface2 }}
+                  tags={["JAVA", "Java.Fx"]}
+                  title="QuantoSpendo"
+                  description="Applicazione Java che simula un gestionale di spese personali."
+                  status="concluso"
+                  linkHref={"/projects/quantospendo"}
+                  linkLabel={"Vai ai dettagli →"}
+                ></ProjectCard>
+              </View>
+            </View>
+          </View>
+          <View style={styles.projectContainer2}>
+            <View style={styles.projectSection}>
+              <View style={styles.cardRow}>
+                <ProjectCard
+                  tags={["PHP", "HTML", "CSS", "JAVASCRIPT", "SQL"]}
+                  title="MyITSdiet"
+                  description="Sito web con la funzione di aiutarti nel gestira la dieta con un calendario settimanale."
+                  status="Concluso"
+                  linkHref={"/projects/itsdiet"}
+                  linkLabel={"Vai ai dettagli →"}
+                ></ProjectCard>
+                <View style={styles.imageSquare}></View>
+              </View>
+            </View>
+          </View>
+        </View>
       <Footer></Footer>
     </ScrollView>
   );
@@ -109,14 +148,13 @@ const styles = StyleSheet.create({
   projectSection: {
     maxWidth: Layout.contentMaxWidth,
     paddingHorizontal: Layout.contentPaddingHorizontal,
-    paddingVertical: 64,
+    paddingVertical: 20,
     alignSelf: "center",
     width: "100%",
     gap: 20,
   },
   cardRow: {
     flexDirection: "row",
-    paddingVertical: 20,
     gap: 10,
   },
   imageSquare: {
@@ -127,4 +165,15 @@ const styles = StyleSheet.create({
     height: "100%",
     resizeMode: "contain", // ritaglia mantenendo le proporzioni, riempiendo il box
   },
+  projectContainer: {
+    width: "100%",
+    backgroundColor: Colors.light.surface,
+    paddingVertical: 20,
+  },
+  projectContainer2: {
+    width: "100%",
+    backgroundColor: Colors.light.surface2,
+    paddingVertical: 20,
+  },
+  projectInner: {},
 });

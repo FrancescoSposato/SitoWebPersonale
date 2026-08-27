@@ -21,7 +21,10 @@ export default function Footer() {
           >
             Github
           </Link>
-          <Link href="https://google.it" style={styles.textLink}>
+          <Link
+            href="https://linkedin.com/in/francesco-sposato-318992431"
+            style={styles.textLink}
+          >
             Linkedin
           </Link>
         </View>
