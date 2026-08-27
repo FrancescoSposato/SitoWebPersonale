@@ -6,6 +6,7 @@ import Kicker from "../Components/Kicker";
 import ButtonLink from "../Components/ButtonLink";
 import CvCard from "../Components/CvCard";
 import Tags from "../Components/Tags";
+import Footer from "../Components/Footer";
 
 export default function Curriculum() {
   return (
@@ -162,65 +163,71 @@ export default function Curriculum() {
             <Text style={styles.cvSectionTitle}>
               Esperienze lavorative e altre attività
             </Text>
-            <View style={styles.cardSection}>
-              <CvCard
-                style={[
-                  styles.cvCardItem,
-                  { backgroundColor: Colors.light.surface2 },
-                ]}
-              >
-                <Text style={styles.sectionText}>
-                  2019 - 2025, periodi estivi
-                </Text>
-                <Text style={styles.cardTitle}>
-                  Attività agricole {"(Vendemmia, raccolta frutta, potatura)."}
-                </Text>
-                <Text style={[styles.cardText, styles.cardTextBottom]}>
-                  Francia
-                </Text>
-              </CvCard>
-              <CvCard
-                style={[
-                  styles.cvCardItem,
-                  { backgroundColor: Colors.light.surface2 },
-                ]}
-              >
-                <Text style={styles.sectionText}>2020 - 2025</Text>
-                <Text style={styles.cardTitle}>
-                  Artista di strada - spettacoli con fuoco
-                </Text>
-                <Text style={[styles.cardText, styles.cardTextBottom]}>
-                  Attività itinerante per tutta Europa.
-                </Text>
-              </CvCard>
-              <CvCard
-                style={[
-                  styles.cvCardItem,
-                  { backgroundColor: Colors.light.surface2 },
-                ]}
-              >
-                <Text style={styles.sectionText}>giugno - agosto 2025</Text>
-                <Text style={styles.cardTitle}>Montatore palchi</Text>
-                <Text style={[styles.cardText, styles.cardTextBottom]}>
-                  Svizzera
-                </Text>
-              </CvCard>
-              <CvCard
-                style={[
-                  styles.cvCardItem,
-                  { backgroundColor: Colors.light.surface2 },
-                ]}
-              >
-                <Text style={styles.sectionText}>Febbraio - Aprile 2023</Text>
-                <Text style={styles.cardTitle}>Montatore arredamenti</Text>
-                <Text style={[styles.cardText, styles.cardTextBottom]}>
-                  Italia
-                </Text>
-              </CvCard>
+            <View style={[{ flexDirection: "column" }]}>
+              <View style={styles.cardSection}>
+                <CvCard
+                  style={[
+                    styles.cvCardItem,
+                    { backgroundColor: Colors.light.surface2 },
+                  ]}
+                >
+                  <Text style={styles.sectionText}>
+                    2019 - 2025, periodi estivi
+                  </Text>
+                  <Text style={styles.cardTitle}>
+                    Attività agricole{" "}
+                    {"(Vendemmia, raccolta frutta, potatura)."}
+                  </Text>
+                  <Text style={[styles.cardText, styles.cardTextBottom]}>
+                    Francia
+                  </Text>
+                </CvCard>
+                <CvCard
+                  style={[
+                    styles.cvCardItem,
+                    { backgroundColor: Colors.light.surface2 },
+                  ]}
+                >
+                  <Text style={styles.sectionText}>2020 - 2025</Text>
+                  <Text style={styles.cardTitle}>
+                    Artista di strada - spettacoli con fuoco
+                  </Text>
+                  <Text style={[styles.cardText, styles.cardTextBottom]}>
+                    Attività itinerante per tutta Europa.
+                  </Text>
+                </CvCard>
+              </View>
+              <View style={styles.cardSection}>
+                <CvCard
+                  style={[
+                    styles.cvCardItem,
+                    { backgroundColor: Colors.light.surface2 },
+                  ]}
+                >
+                  <Text style={styles.sectionText}>giugno - agosto 2025</Text>
+                  <Text style={styles.cardTitle}>Montatore palchi</Text>
+                  <Text style={[styles.cardText, styles.cardTextBottom]}>
+                    Svizzera
+                  </Text>
+                </CvCard>
+                <CvCard
+                  style={[
+                    styles.cvCardItem,
+                    { backgroundColor: Colors.light.surface2 },
+                  ]}
+                >
+                  <Text style={styles.sectionText}>Febbraio - Aprile 2023</Text>
+                  <Text style={styles.cardTitle}>Montatore arredamenti</Text>
+                  <Text style={[styles.cardText, styles.cardTextBottom]}>
+                    Italia
+                  </Text>
+                </CvCard>
+              </View>
             </View>
           </View>
         </View>
       </View>
+      <Footer></Footer>
     </ScrollView>
   );
 }
@@ -256,14 +263,14 @@ const styles = StyleSheet.create({
   },
   bigText: {
     fontFamily: Fonts.heading,
-    fontSize: 50,
+    fontSize: 48,
     color: Colors.ink.text,
   },
   smallText: {
     paddingTop: 20,
     fontFamily: Fonts.body,
     color: Colors.ink.textSecondary,
-    fontSize: 30,
+    fontSize: 17,
   },
   buttonRow: {
     flexDirection: "row",

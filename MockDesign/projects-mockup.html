@@ -1,0 +1,209 @@
+<title>Mockup Progetti</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500&family=Public+Sans:wght@400;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --font-display: 'Fraunces', Georgia, serif;
+    --font-body: 'Public Sans', system-ui, sans-serif;
+    --font-mono: 'IBM Plex Mono', 'Courier New', monospace;
+
+    --paper: #F8FAFC;
+    --surface: #FFFFFF;
+    --text: #0F172A;
+    --text-2: #4C5B74;
+    --border: #E1E7F0;
+    --blue: #2352C7;
+    --green: #0EA579;
+
+    --ink: #0A1220;
+    --ink-surface: #111B2E;
+    --ink-text: #E8EDF7;
+    --ink-text-2: #93A2BC;
+    --ink-border: #24334F;
+    --ink-blue: #7DA0FA;
+    --ink-green: #34D8A0;
+    --gradient: linear-gradient(135deg, var(--ink-blue), var(--ink-green));
+
+    --mx: 50%;
+    --my: 40%;
+  }
+
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; background: var(--paper); color: var(--text); font-family: var(--font-body); -webkit-font-smoothing: antialiased; }
+  h1, h2, h3 { font-family: var(--font-display); margin: 0; text-wrap: balance; }
+  p, ul { margin: 0; }
+  a { color: inherit; }
+
+  .wrap { max-width: 1160px; margin: 0 auto; padding: 0 clamp(1.25rem, 4vw, 2.5rem); }
+
+  /* ---------- nav (identico a homepage-mockup-v2) ---------- */
+  header {
+    position: sticky; top: 0; left: 0; right: 0; z-index: 50;
+    background: color-mix(in srgb, var(--ink-surface) 92%, transparent);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid var(--ink-border);
+  }
+  header .nav-inner {
+    display: flex; align-items: center; justify-content: space-between;
+    gap: 1rem; padding: 1rem clamp(1.25rem, 4vw, 2.5rem);
+    max-width: 1160px; margin: 0 auto;
+  }
+  .brand {
+    display: flex; align-items: center; gap: 0.6rem;
+    font-family: var(--font-mono); font-weight: 500; font-size: 0.95rem;
+    text-decoration: none; color: var(--ink-text);
+  }
+  .brand-mark {
+    width: 30px; height: 30px; display: grid; place-items: center;
+    background: var(--gradient); color: #061019;
+    font-size: 0.76rem; font-weight: 700; letter-spacing: 0.01em;
+  }
+  .nav-links { display: flex; align-items: center; gap: clamp(1rem, 2vw, 2rem); list-style: none; margin: 0; padding: 0; font-size: 0.9rem; }
+  .nav-links a { text-decoration: none; color: var(--ink-text-2); padding: 0.3rem 0; border-bottom: 2px solid transparent; }
+  .nav-links a.is-active { color: var(--ink-text); border-bottom-color: var(--ink-green); font-weight: 600; }
+  .nav-cta {
+    font-family: var(--font-body); font-size: 0.85rem; font-weight: 600; text-decoration: none;
+    color: #061019; background: var(--gradient); padding: 0.55rem 1.1rem; white-space: nowrap;
+  }
+  @media (max-width: 760px) { .nav-links { display: none; } }
+
+  /* ---------- kicker (identico a homepage) ---------- */
+  .kicker {
+    font-family: var(--font-mono); font-size: 0.82rem; color: var(--ink-green);
+    letter-spacing: 0.06em; margin: 0 0 1rem; display: flex; align-items: center; gap: 0.55rem;
+  }
+  .kicker .dot { width: 7px; height: 7px; border-radius: 50%; background: var(--ink-green); box-shadow: 0 0 0 3px rgba(52,216,160,0.18); }
+
+  /* ---------- page-hero (identico a curriculum-mockup) ---------- */
+  .page-hero {
+    position: relative;
+    background: var(--ink);
+    color: var(--ink-text);
+    padding: clamp(3.5rem, 8vw, 5rem) 0 clamp(3rem, 6vw, 4rem);
+    overflow: hidden;
+    isolation: isolate;
+  }
+  .page-hero::before {
+    content: '';
+    position: absolute; inset: 0; z-index: 0;
+    background:
+      radial-gradient(600px circle at var(--mx) var(--my), rgba(125,160,250,0.16), transparent 60%),
+      radial-gradient(900px 500px at 85% -10%, rgba(52,216,160,0.14), transparent 60%);
+  }
+  .page-hero > .wrap { position: relative; z-index: 1; max-width: 760px; }
+  .page-hero h1 { font-size: clamp(2rem, 4.4vw, 3rem); line-height: 1.1; font-weight: 500; margin-bottom: 1rem; }
+  .hero-lead { font-size: 1.05rem; line-height: 1.65; color: var(--ink-text-2); max-width: 56ch; }
+
+  /* ---------- content section ---------- */
+  section.content { padding: clamp(3rem, 6vw, 4rem) 0; background: var(--paper); }
+
+  /* ---------- lista progetti: 1 card per riga, immagine + testo alternati ---------- */
+  .projects-list { display: flex; flex-direction: column; gap: 2.75rem; }
+  .project-row { display: flex; align-items: stretch; gap: 2rem; }
+  .project-row.reverse { flex-direction: row-reverse; }
+  @media (max-width: 760px) {
+    .project-row, .project-row.reverse { flex-direction: column; gap: 1.25rem; }
+  }
+
+  .project-media {
+    flex: 1 1 44%;
+    min-height: 260px;
+    background: linear-gradient(135deg, rgba(35,82,199,0.08), rgba(14,165,121,0.08));
+    border: 1px solid var(--border);
+    display: flex; align-items: center; justify-content: center;
+    clip-path: polygon(0 0, calc(100% - 26px) 0, 100% 26px, 100% 100%, 0 100%);
+  }
+  .project-row.reverse .project-media {
+    clip-path: polygon(26px 0, 100% 0, 100% 100%, 0 100%, 0 26px);
+  }
+  .project-media span { font-family: var(--font-mono); font-size: 0.78rem; color: var(--text-2); letter-spacing: 0.02em; }
+
+  .project-body { flex: 1 1 56%; display: flex; flex-direction: column; gap: 0.9rem; justify-content: center; }
+  .project-body h3 { font-size: 1.6rem; font-weight: 500; }
+  .project-body p { color: var(--text-2); font-size: 0.95rem; line-height: 1.6; max-width: 52ch; }
+
+  /* ---------- p-tag / p-status / p-link (identici a homepage-mockup-v2) ---------- */
+  .p-tag-row { display: flex; gap: 0.5rem; flex-wrap: wrap; }
+  .p-tag {
+    font-family: var(--font-mono); font-size: 0.72rem; color: var(--text-2);
+    border: 1px solid var(--border); padding: 0.2rem 0.55rem; letter-spacing: 0.01em;
+  }
+  .p-status { display: inline-flex; align-items: center; gap: 0.4rem; font-family: var(--font-mono); font-size: 0.72rem; color: var(--green); }
+  .p-status .dot { width: 6px; height: 6px; border-radius: 50%; background: var(--green); }
+  .p-link { font-family: var(--font-mono); font-size: 0.82rem; color: var(--blue); text-decoration: none; }
+  .p-link:hover { text-decoration: underline; }
+
+  /* ---------- footer (identico a homepage) ---------- */
+  footer { background: var(--ink); color: var(--ink-text); border-top: 1px solid var(--ink-border); padding: 2.2rem 0; }
+  .footer-inner { display: flex; align-items: center; justify-content: space-between; gap: 1rem; flex-wrap: wrap; }
+  .footer-brand { font-family: var(--font-mono); font-size: 0.88rem; }
+  .footer-links { display: flex; gap: 1.4rem; list-style: none; padding: 0; margin: 0; font-size: 0.85rem; }
+  .footer-links a { color: var(--ink-text-2); text-decoration: none; }
+</style>
+
+<header id="siteHeader">
+  <div class="nav-inner">
+    <a class="brand" href="#">
+      <span class="brand-mark">FS</span>
+      francesco&nbsp;sposato
+    </a>
+    <ul class="nav-links">
+      <li><a href="#">Home</a></li>
+      <li><a href="#">Curriculum</a></li>
+      <li><a href="#" class="is-active">Progetti</a></li>
+      <li><a href="#">Contatti</a></li>
+    </ul>
+    <a class="nav-cta" href="#">Contattami</a>
+  </div>
+</header>
+
+<section class="page-hero">
+  <div class="wrap">
+    <p class="kicker"><span class="dot"></span>progetti selezionati</p>
+    <h1>Cosa sto costruendo</h1>
+    <p class="hero-lead">Una selezione dei progetti a cui sto lavorando o che ho concluso: dal sito che stai guardando ora a strumenti pensati per risolvere problemi reali.</p>
+  </div>
+</section>
+
+<section class="content">
+  <div class="wrap">
+    <div class="projects-list">
+      <div class="project-row">
+        <div class="project-media"><span>screenshot / anteprima</span></div>
+        <div class="project-body">
+          <div class="p-tag-row">
+            <span class="p-tag">React Native</span><span class="p-tag">Expo Router</span><span class="p-tag">Web + Android</span>
+          </div>
+          <h3>Questo sito</h3>
+          <p>Questo pagina web nasce dall'esigenza di avere un portfolio/vetrina: costruito da zero con Expo Router, visibile su ogni piattaforma grazie al framework React Native.</p>
+          <span class="p-status"><span class="dot"></span>Concluso</span>
+          <a class="p-link" href="#">Vedi il codice →</a>
+        </div>
+      </div>
+      <div class="project-row reverse">
+        <div class="project-media"><span>screenshot / anteprima</span></div>
+        <div class="project-body">
+          <div class="p-tag-row">
+            <span class="p-tag">React Native</span><span class="p-tag">C#</span><span class="p-tag">ASP.net Core</span><span class="p-tag">PostGree</span>
+          </div>
+          <h3>Project GoCare</h3>
+          <p>Una web app leggera e veloce che facilita il contatto tra persone bisognose di trasporti sociali e associazioni di volontariato.</p>
+          <span class="p-status"><span class="dot"></span>In produzione</span>
+          <a class="p-link" href="#">Apri il progetto →</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap footer-inner">
+    <p class="footer-brand">francesco sposato — sviluppatore web &amp; mobile</p>
+    <ul class="footer-links">
+      <li><a href="#">Email</a></li>
+      <li><a href="#">GitHub</a></li>
+      <li><a href="#">LinkedIn</a></li>
+    </ul>
+  </div>
+</footer>

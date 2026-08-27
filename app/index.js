@@ -91,7 +91,7 @@ export default function Index() {
                 "Una web app leggera e veloce che facilita il contatto tra persone bisognose di trasporti sociali e associazioni di volontariato."
               }
               status="In produzione"
-              linkHref={"/projects"}
+              linkHref={"/projects/gocare"}
               linkLabel={"Apri il progetto →"}
             ></ProjectCard>
           </View>
@@ -158,14 +158,14 @@ const styles = StyleSheet.create({
   },
   bigText: {
     fontFamily: Fonts.heading,
-    fontSize: 50,
+    fontSize: 48,
     color: Colors.ink.text,
   },
   smallText: {
     paddingTop: 20,
     fontFamily: Fonts.body,
     color: Colors.ink.textSecondary,
-    fontSize: 30,
+    fontSize: 17,
   },
   buttonRow: {
     flexDirection: "row",

@@ -9,40 +9,51 @@ Checklist di sviluppo del sito/curriculum personale. Documento vivo: verrà aggi
 - [x] Progetto Expo creato
 - [x] Expo Router configurato (vedi `SETTING.md`)
 - [x] Supporto web funzionante (`expo start --web`)
-- [ ] Struttura cartelle definitiva sotto `app/` (routing)
+- [x] Struttura cartelle definitiva sotto `app/` (routing)
 - [x] Scelta libreria styling → `StyleSheet` nativo di React Native
 - [x] Palette colori → definita in `constants/colors.js` (light/dark), da ricerca su fiducia/professionalità
 - [x] Font del sito → Fraunces, Public Sans, IBM Plex Mono caricati via `@expo-google-fonts/*` in `app/_layout.js`, token in `constants/fonts.js`
 
 ## Homepage (`app/index.js`)
 
-- [ ] Sezione di presentazione (nome, ruolo, breve intro)
-- [ ] Foto o elemento grafico
-- [ ] Call to action verso curriculum / contatti
-- [ ] Link di navigazione verso le altre pagine
+- [x] Sezione di presentazione (nome, ruolo, breve intro)
+- [x] Foto o elemento grafico
+- [x] Call to action verso curriculum / contatti
+- [x] Link di navigazione verso le altre pagine
 
 ## Pagina Curriculum
 
-- [ ] Route dedicata (es. `app/curriculum.js`)
-- [ ] Esperienze lavorative
-- [ ] Percorso formativo
-- [ ] Competenze tecniche
-- [ ] Eventuale download CV in PDF
+- [x] Route dedicata (es. `app/curriculum.js`)
+- [x] Esperienze lavorative
+- [x] Percorso formativo
+- [x] Competenze tecniche
+- [x] Eventuale download CV in PDF
 
 ## Pagina Progetti
 
-- [ ] Route dedicata (es. `app/projects.js` o `app/projects/index.js`)
-- [ ] Decisione: schede con link a repo/demo esterni (vedi nota sotto)
-- [ ] Card progetto: titolo, descrizione, stack tecnologico, link demo, link repo
+- [x] Route dedicata (es. `app/projects.js` o `app/projects/index.js`)
+- [x] Decisione: schede con link a repo/demo esterni (vedi nota sotto)
+- [x] Card progetto: titolo, descrizione, stack tecnologico, link demo, link repo
 - [ ] Eventuali immagini/screenshot dei progetti
 
 > Nota: preferibile tenere i progetti come schede con link esterni (demo + GitHub) invece di integrarli direttamente nel sito, per mantenerlo leggero e i progetti deployabili in autonomia.
+> Stato screenshot: presenti per "Questo sito portfolio" e "Project GoCare"; ancora mancanti per "QuantoSpendo" e "MyITSdiet" (riquadro immagine vuoto).
 
-## Pagina Contatti (da valutare)
+## Pagine progetto in dettaglio
 
-- [ ] Route dedicata (es. `app/contacts.js`)
-- [ ] Email / social / LinkedIn
-- [ ] Eventuale form di contatto
+- [ ] `app/projects/this.js` — dettagli "Questo sito portfolio" (route creata, ScrollView vuoto)
+- [ ] `app/projects/gocare.js` — dettagli "Project GoCare" (route creata, ScrollView vuoto)
+- [ ] `app/projects/quantospendo.js` — dettagli "QuantoSpendo" (file vuoto, da scrivere da zero)
+- [ ] `app/projects/itsdiet.js` — dettagli "MyITSdiet" (file vuoto, da scrivere da zero)
+
+> Nota: pagina statica per ogni progetto invece di una route dinamica `[slug].js`, per poter avere contenuti liberi (immagini, testo lungo) diversi da progetto a progetto.
+
+## Pagina Contatti
+
+- [x] Route dedicata (es. `app/contacts.js`)
+- [x] Email / social / LinkedIn
+
+> URL LinkedIn reale impostato (`linkedin.com/in/francesco-sposato-318992431`, sia in `app/contacts.js` che in `Components/Footer.jsx`). Resta da confermare solo l'email (`sposato.fs@outlook.it` presa dal CV — verificare che sia quella giusta da mostrare pubblicamente).
 
 ## Navigazione generale
 
