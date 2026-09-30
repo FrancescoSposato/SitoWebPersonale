@@ -40,6 +40,7 @@ export const Colors = {
     border: '#24334F',
     primary: '#7DA0FA',
     accent: '#34D8A0',
+    accentSoft: 'rgba(52, 216, 160, 0.18)',
     onGradient: '#061019',
   },
 };

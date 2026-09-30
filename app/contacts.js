@@ -3,7 +3,7 @@ import { Fonts } from "../constants/fonts";
 import { StyleSheet, View, Text, ScrollView } from "react-native";
 import { Layout } from "../constants/layout";
 import Footer from "../Components/Footer";
-import { Link } from "expo-router";
+import AnimatedLink from "../Components/AnimatedLink";
 
 export default function Contacts() {
   return (
@@ -26,27 +26,33 @@ export default function Contacts() {
           <View style={styles.cardRow}>
             <View style={styles.card}>
               <Text style={styles.cardLabel}>EMAIL</Text>
-              <Link href="mailto:sposato.fs@outlook.it" style={styles.textLink}>
+              <AnimatedLink
+                href="mailto:sposato.fs@outlook.it"
+                style={styles.textLink}
+                hoveredStyle={styles.textLinkHovered}
+              >
                 sposato.fs@outlook.it
-              </Link>
+              </AnimatedLink>
             </View>
             <View style={styles.card}>
               <Text style={styles.cardLabel}>GITHUB</Text>
-              <Link
+              <AnimatedLink
                 href="https://github.com/FrancescoSposato"
                 style={styles.textLink}
+                hoveredStyle={styles.textLinkHovered}
               >
-                https://github.com/FrancescoSposato
-              </Link>
+                github.com/FrancescoSposato
+              </AnimatedLink>
             </View>
             <View style={styles.card}>
               <Text style={styles.cardLabel}>LINKEDIN</Text>
-              <Link
+              <AnimatedLink
                 href="https://linkedin.com/in/francesco-sposato-318992431"
                 style={styles.textLink}
+                hoveredStyle={styles.textLinkHovered}
               >
-                https://linkedin.com/in/francesco-sposato-318992431
-              </Link>
+                linkedin.com/in/francesco-sposato-318992431
+              </AnimatedLink>
             </View>
           </View>
         </View>
@@ -129,5 +135,9 @@ const styles = StyleSheet.create({
     fontFamily: Fonts.bodySemiBold,
     fontSize: 18,
     color: Colors.light.text,
+  },
+  textLinkHovered: {
+    color: Colors.light.primary,
+    textDecorationLine: "underline",
   },
 });

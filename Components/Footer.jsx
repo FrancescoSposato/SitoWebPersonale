@@ -1,8 +1,8 @@
 import { View, StyleSheet, Text } from "react-native";
 import { Colors } from "../constants/colors";
 import { Fonts } from "../constants/fonts";
-import { Link } from "expo-router";
 import { Layout } from "../constants/layout";
+import AnimatedLink from "./AnimatedLink";
 
 export default function Footer() {
   return (
@@ -12,21 +12,27 @@ export default function Footer() {
           Francesco Sposato - studente e aspirante sviluppatore
         </Text>
         <View style={styles.links}>
-          <Link href="mailto:sposato.fs@outlook.it" style={styles.textLink}>
+          <AnimatedLink
+            href="mailto:sposato.fs@outlook.it"
+            style={styles.textLink}
+            hoveredStyle={styles.textLinkHovered}
+          >
             Email
-          </Link>
-          <Link
+          </AnimatedLink>
+          <AnimatedLink
             href="https://github.com/FrancescoSposato"
             style={styles.textLink}
+            hoveredStyle={styles.textLinkHovered}
           >
             Github
-          </Link>
-          <Link
+          </AnimatedLink>
+          <AnimatedLink
             href="https://linkedin.com/in/francesco-sposato-318992431"
             style={styles.textLink}
+            hoveredStyle={styles.textLinkHovered}
           >
             Linkedin
-          </Link>
+          </AnimatedLink>
         </View>
       </View>
     </View>
@@ -62,5 +68,9 @@ const styles = StyleSheet.create({
   textLink: {
     fontFamily: Fonts.body,
     color: Colors.ink.textSecondary,
+  },
+  textLinkHovered: {
+    color: Colors.ink.text,
+    textDecorationLine: "underline",
   },
 });

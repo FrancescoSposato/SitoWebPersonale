@@ -13,7 +13,12 @@ export default function Curriculum() {
     <ScrollView>
       <View style={styles.hero}>
         <View style={styles.inner}>
-          <View style={styles.imageContainer}></View>
+          <View style={styles.imageContainer}>
+            {/* Slot per la foto: quando ce l'hai, sostituisci questo View con
+            <Image source={require("../assets/tuaFoto.jpg")} style={styles.photo} />
+            — styles.photo ha già le stesse dimensioni e l'angolo arrotondato pronti */}
+            <View style={styles.photoSlot}></View>
+          </View>
           <View style={styles.rightContainer}>
             <Kicker label="curriculum vitae"></Kicker>
             <Text style={styles.bigText}>Francesco Sposato</Text>
@@ -254,6 +259,22 @@ const styles = StyleSheet.create({
     flex: 1,
     width: 280,
     maxWidth: 580,
+    alignItems: "center",
+    justifyContent: "center",
+  },
+  photoSlot: {
+    width: 240,
+    height: 240,
+    borderRadius: 120,
+    borderWidth: 2,
+    borderStyle: "dashed",
+    borderColor: Colors.ink.border,
+    backgroundColor: Colors.ink.surface2,
+  },
+  photo: {
+    width: 240,
+    height: 240,
+    borderRadius: 120,
   },
   rightContainer: {
     flex: 1,

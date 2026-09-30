@@ -1,7 +1,7 @@
 import { View, StyleSheet, Text } from "react-native";
-import { Link } from "expo-router";
 import { Colors } from "../constants/colors";
 import { Fonts } from "../constants/fonts";
+import AnimatedLink from "./AnimatedLink";
 
 export default function ProjectCard({
   variant = "small",
@@ -36,9 +36,14 @@ export default function ProjectCard({
           <Text style={styles.pStatusText}>{status}</Text>
         </View>
       ) : null}
-      <Link href={linkHref} style={styles.pLink}>
+      <AnimatedLink
+        href={linkHref}
+        style={styles.pLink}
+        hoveredStyle={styles.pLinkHovered}
+        wrapperStyle={styles.pLinkWrap}
+      >
         {linkLabel}
-      </Link>
+      </AnimatedLink>
     </View>
   );
 }
@@ -106,10 +111,15 @@ const styles = StyleSheet.create({
     fontSize: 12,
     color: Colors.light.accent,
   },
-  pLink: {
+  pLinkWrap: {
     marginTop: "auto",
+  },
+  pLink: {
     fontFamily: Fonts.mono,
     fontSize: 13,
     color: Colors.light.primary,
+  },
+  pLinkHovered: {
+    textDecorationLine: "underline",
   },
 });

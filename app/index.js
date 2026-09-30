@@ -1,9 +1,9 @@
 import { StatusBar } from "expo-status-bar";
-import { Pressable, StyleSheet, Text, View } from "react-native";
+import { StyleSheet, Text, View } from "react-native";
 import { Colors } from "../constants/colors";
 import { Fonts } from "../constants/fonts";
 import { Layout } from "../constants/layout";
-import { Link } from "expo-router";
+import AnimatedLink from "../Components/AnimatedLink";
 import ButtonLink from "../Components/ButtonLink";
 import CodeAnimation from "../Components/CodeAnimation";
 import Kicker from "../Components/Kicker";
@@ -55,7 +55,7 @@ export default function Index() {
           <View style={styles.statCard}>
             <Text style={styles.statNum}>5+</Text>
             <Text style={styles.statLabel}>
-              Core items nello stack: React Native, Expo, EF Core, ASP.net Core
+              Core items nello stack: React Native, Expo, EF Core, ASP.NET Core
             </Text>
           </View>
           <View style={styles.statCard}>
@@ -68,9 +68,13 @@ export default function Index() {
         <View style={styles.projectsInner}>
           <View style={styles.sectionHead}>
             <Text style={styles.sectionTitle}>Cosa sto costruendo</Text>
-            <Link href="/projects" style={styles.sectionLink}>
+            <AnimatedLink
+              href="/projects"
+              style={styles.sectionLink}
+              hoveredStyle={styles.sectionLinkHovered}
+            >
               Tutti i progetti →
-            </Link>
+            </AnimatedLink>
           </View>
           <View style={styles.projectCardsRow}>
             <ProjectCard
@@ -85,7 +89,7 @@ export default function Index() {
             ></ProjectCard>
             <ProjectCard
               variant="small"
-              tags={["React Native", "C#", "ASP.net Core", "PostGree"]}
+              tags={["React Native", "C#", "ASP.NET Core", "PostGree"]}
               title={"Project GoCare"}
               description={
                 "Una web app leggera e veloce che facilita il contatto tra persone bisognose di trasporti sociali e associazioni di volontariato."
@@ -198,7 +202,7 @@ const styles = StyleSheet.create({
     borderWidth: 1,
     borderColor: Colors.light.border,
     padding: 24,
-    shadowColor: "#0F172A",
+    shadowColor: Colors.light.text,
     shadowOffset: { width: 0, height: 2 },
     shadowOpacity: 0.06,
     shadowRadius: 8,
@@ -249,6 +253,9 @@ const styles = StyleSheet.create({
     fontFamily: Fonts.mono,
     fontSize: 14,
     color: Colors.light.textSecondary,
+  },
+  sectionLinkHovered: {
+    color: Colors.light.text,
     textDecorationLine: "underline",
   },
   projectCardsRow: {

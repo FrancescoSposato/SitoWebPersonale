@@ -28,7 +28,7 @@ export default function Projects() {
             <View style={styles.cardRow}>
               <View style={styles.imageSquare}>
                 <Image
-                  source={require("../../assets/sitoFake.png")}
+                  source={require("../../assets/react.png")}
                   style={styles.screenshot}
                 ></Image>
               </View>
@@ -46,65 +46,75 @@ export default function Projects() {
         </View>
 
         <View style={styles.projectContainer2}>
-            <View style={styles.projectSection}>
-              <View style={styles.cardRow}>
-                <ProjectCard
-                  tags={[
-                    "React Native",
-                    "Expo Router",
-                    "C#",
-                    "ASP.NET Core",
-                    "EF Core",
-                    "PostGree",
-                  ]}
-                  title="Project GoCare"
-                  description="Un progetto di gruppo che facilità il contatto tra persone bisognose 
+          <View style={styles.projectSection}>
+            <View style={styles.cardRow}>
+              <ProjectCard
+                tags={[
+                  "React Native",
+                  "Expo Router",
+                  "C#",
+                  "ASP.NET Core",
+                  "EF Core",
+                  "PostGree",
+                ]}
+                title="Project GoCare"
+                description="Un progetto di gruppo che facilità il contatto tra persone bisognose 
                 di un trasporto sociale e associazioni di volontariato che forniscono questo servizio."
-                  status="In costruzione"
-                  linkHref={"/projects/gocare"}
-                  linkLabel={"Vai ai dettagli →"}
-                ></ProjectCard>
-                <View style={styles.imageSquare}>
-                  <Image
-                    source={require("../../assets/gocare_wheel.png")}
-                    style={styles.screenshot}
-                  ></Image>
-                </View>
-              </View>
-            </View>
-          </View>
-          <View style={styles.projectContainer}>
-            <View style={styles.projectSection}>
-              <View style={styles.cardRow}>
-                <View style={styles.imageSquare}></View>
-                <ProjectCard
-                  style={{ backgroundColor: Colors.light.surface2 }}
-                  tags={["JAVA", "Java.Fx"]}
-                  title="QuantoSpendo"
-                  description="Applicazione Java che simula un gestionale di spese personali."
-                  status="concluso"
-                  linkHref={"/projects/quantospendo"}
-                  linkLabel={"Vai ai dettagli →"}
-                ></ProjectCard>
-              </View>
-            </View>
-          </View>
-          <View style={styles.projectContainer2}>
-            <View style={styles.projectSection}>
-              <View style={styles.cardRow}>
-                <ProjectCard
-                  tags={["PHP", "HTML", "CSS", "JAVASCRIPT", "SQL"]}
-                  title="MyITSdiet"
-                  description="Sito web con la funzione di aiutarti nel gestira la dieta con un calendario settimanale."
-                  status="Concluso"
-                  linkHref={"/projects/itsdiet"}
-                  linkLabel={"Vai ai dettagli →"}
-                ></ProjectCard>
-                <View style={styles.imageSquare}></View>
+                status="In costruzione"
+                linkHref={"/projects/gocare"}
+                linkLabel={"Vai ai dettagli →"}
+              ></ProjectCard>
+              <View style={styles.imageSquare}>
+                <Image
+                  source={require("../../assets/care_wheel.png")}
+                  style={styles.screenshot}
+                ></Image>
               </View>
             </View>
           </View>
         </View>
+        <View style={styles.projectContainer}>
+          <View style={styles.projectSection}>
+            <View style={styles.cardRow}>
+              <View style={styles.imageSquare}>
+                <Image
+                  source={require("../../assets/micToText.png")}
+                  style={styles.screenshot}
+                ></Image>
+              </View>
+              <ProjectCard
+                style={{ backgroundColor: Colors.light.surface2 }}
+                tags={["Python", "faster-whisper", "Ollama", "Flask"]}
+                title="MicToText"
+                description="Registra le lezioni e genera in automatico appunti strutturati e schemi visivi, con un'IA che gira interamente in locale."
+                status="In costruzione"
+                linkHref={"/projects/mictotext"}
+                linkLabel={"Vai ai dettagli →"}
+              ></ProjectCard>
+            </View>
+          </View>
+        </View>
+        <View style={styles.projectContainer2}>
+          <View style={styles.projectSection}>
+            <View style={styles.cardRow}>
+              <ProjectCard
+                tags={["JAVA", "Java.Fx"]}
+                title="QuantoSpendo"
+                description="Applicazione Java che simula un gestionale di spese personali."
+                status="concluso"
+                linkHref={"/projects/quantospendo"}
+                linkLabel={"Vai ai dettagli →"}
+              ></ProjectCard>
+              <View style={styles.imageSquare}>
+                <Image
+                  source={require("../../assets/quantoSpendo.png")}
+                  style={styles.screenshot}
+                ></Image>
+              </View>
+            </View>
+          </View>
+        </View>
+      </View>
       <Footer></Footer>
     </ScrollView>
   );

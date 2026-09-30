@@ -9,7 +9,7 @@ import ButtonLink from "../../Components/ButtonLink";
 import AnimatedLink from "../../Components/AnimatedLink";
 import { ScrollView, View, Text, Image, StyleSheet } from "react-native";
 
-export default function QuantoSpendo() {
+export default function MicToText() {
   return (
     <ScrollView contentContainerStyle={styles.scrollContent}>
       <View style={{ flex: 1 }}>
@@ -17,9 +17,11 @@ export default function QuantoSpendo() {
           <View style={styles.inner}>
             <View style={styles.heroText}>
               <Kicker label="dettaglio progetto"></Kicker>
-              <Text style={styles.bigText}>QuantoSpendo</Text>
+              <Text style={styles.bigText}>MicToText</Text>
               <Text style={styles.smallText}>
-                Applicazione Java che simula un gestionale di spese personali.
+                Uno strumento che registra le lezioni e trasforma l'audio in
+                appunti strutturati e schemi visivi, generati in automatico da
+                un'IA che gira interamente in locale.
               </Text>
             </View>
           </View>
@@ -27,24 +29,28 @@ export default function QuantoSpendo() {
 
         <View style={styles.overviewContainer}>
           <View style={styles.overview}>
-            <Tags tags={["JAVA", "Java.Fx"]}></Tags>
+            <Tags tags={["Python", "Ollama", "Flask"]}></Tags>
             <View style={styles.status}>
               <View style={styles.statusDot}></View>
-              <Text style={styles.statusText}>Concluso</Text>
+              <Text style={styles.statusText}>In costruzione</Text>
             </View>
             <Text style={styles.cvSectionTitle}>Panoramica</Text>
             <Text style={styles.cardText}>
-              QuantoSpendo è stato il primo vero piccolo progetto costruito a
-              livello scolastico. Quando ho creato questo progetto sapevo molto
-              poco di programmazione: pochi concetti e confusi. E' stato il
-              primo contatto con la necessità di creare folder structures
-              coerenti e pulite, oltre che il primo approccio con le interfacce
-              grafiche. La sua realizazzione ha cominciato a dare peso alle
-              conoscenze apprese fino a quel momento.
+              MicToText è un progetto nato dalla necessità di poter registrare
+              l'audio delle lezioni e far creare schemi e schede di studio in
+              maniera del tutto automatizzata dall'IA. Mi è venuta questa idea
+              in un periodo pieno di lezioni e studio, dove costruire uno schema
+              per un singolo argomento mi prendeva moltissimo tempo, e gli
+              argomenti da studiare erano tanti e vari: non riuscivo a creare
+              tutti quegli schemi in maniera veloce e funzionale senza
+              sacrificare tante ore. L'obiettivo in questo caso specifico non è
+              stato il codice: l'app è stata creata con il supporto completo
+              dell'IA. La necessità qui era creare uno strumento funzionante
+              velocemente. La priorità che fosse del tutto in locale.
             </Text>
             <View style={styles.imageSquareFull}>
               <Image
-                source={require("../../assets/quanto_icon.png")}
+                source={require("../../assets/micToText.png")}
                 style={styles.screenshot}
               ></Image>
             </View>
@@ -54,21 +60,35 @@ export default function QuantoSpendo() {
         <View style={styles.stackContainer}>
           <View style={styles.stack}>
             <Kicker label="stack tecnologico"></Kicker>
-            <Text style={styles.cvSectionTitle}>Cosa c'è sotto il cofano</Text>
+            <Text style={styles.cvSectionTitle}>Cosa ho utilizzato</Text>
             <View style={styles.cardSection}>
               <CvCard style={styles.cvCardItem}>
-                <Text style={styles.cardTitle}>Java</Text>
+                <Text style={styles.cardTitle}>Python</Text>
                 <Text style={styles.cardText}>
-                  Al momento della creazione di QuantoSpendo avevo studiato solo
-                  Python. Il passaggio a un linguaggio staticamente tipizzato,
-                  dove ogni tipo va dichiarato e viene controllato in
-                  compilazione, è stato un bel cambio.
+                  Tutta la pipeline gira in locale in Python: dalla cattura del
+                  microfono all'orchestrazione dei vari passaggi.
                 </Text>
               </CvCard>
               <CvCard style={styles.cvCardItem}>
-                <Text style={styles.cardTitle}>JavaFX</Text>
+                <Text style={styles.cardTitle}>faster-whisper</Text>
                 <Text style={styles.cardText}>
-                  Uno strumento intuitivo per creare GUI con Java.
+                  Trascrive l'audio in testo direttamente sul PC, senza inviare
+                  nulla a servizi cloud.
+                </Text>
+              </CvCard>
+              <CvCard style={styles.cvCardItem}>
+                <Text style={styles.cardTitle}>Ollama (qwen2.5:7b)</Text>
+                <Text style={styles.cardText}>
+                  Un modello linguistico eseguito in locale trasforma la
+                  trascrizione in appunti strutturati e in uno schema Mermaid.
+                </Text>
+              </CvCard>
+              <CvCard style={styles.cvCardItem}>
+                <Text style={styles.cardTitle}>Flask</Text>
+                <Text style={styles.cardText}>
+                  Un'interfaccia web opzionale, in locale, per avviare la
+                  registrazione e seguire l'elaborazione senza usare la riga di
+                  comando.
                 </Text>
               </CvCard>
             </View>
@@ -85,28 +105,35 @@ export default function QuantoSpendo() {
               <CvCard style={styles.cvCardItem}>
                 <Text style={styles.cardTitle}>Cosa ha funzionato bene</Text>
                 <Text style={styles.cardText}>
-                  Ho capito da subito che in un progetto con svariati file è
-                  importantissima un'organizzazione precisa e pulita. La
-                  definizione da subito di questa struttura mi ha facilitato in
-                  modo esponenziale il lavoro successivo.
+                  E' stata un applicazione incredibilmente veloce da creare. Ho
+                  creato da subito un piano incrementeale: prima le cose piu
+                  semplici, e man mano che i test proseguivano ho aumentato le
+                  funzionalità. Avendo tralasciato quasi compeletamente la parte
+                  di codice, mi sono concentrato soprattutto sulla
+                  strutturazione dei requisiti e la mitigazione delle
+                  problematiche.
                 </Text>
               </CvCard>
               <CvCard style={styles.cvCardItem}>
                 <Text style={styles.cardTitle}>Difficoltà incontrate</Text>
                 <Text style={styles.cardText}>
-                  Essendo la prima vera app mai realizzata sono state molte: 1
-                  Comprensione della folder structure necessaria 2 Comprensione
-                  architetturale di Service, Controller e Repository 3
-                  comprensione di come costruire un metodo e dell'importazione
-                  tra moduli differenti
+                  Uno dei grandi problemi dell'IA è la necessità di grandi
+                  potenze di calcolo per poter funzionare in locale. Ho dovuto
+                  effettuare ricerche per capire quale fosse il modello piu'
+                  potente da me utilizzabile.
                 </Text>
               </CvCard>
               <CvCard style={styles.cvCardItem}>
-                <Text style={styles.cardTitle}>Cosa rifarei diversamente</Text>
+                <Text style={styles.cardTitle}>
+                  Cosa rifaresti diversamente
+                </Text>
                 <Text style={styles.cardText}>
-                  Definirei meglio Use Cases e gestione delle tempistiche. Al
-                  momento della creazione di QuantoSpendo ancora non erano
-                  chiare le buone pratiche per una progettazione ottimale.
+                  Avendo avuto piu' tempo a disposizione nella creazione,
+                  cercherei di studiare e capire il codice prima di
+                  implementarlo, perchè la reputo una cosa essenziale per creare
+                  buon codice e migliorare lo sviluppo: il fatto che un app sia
+                  vibe-codata non giustifica la non conoscenza dei dettagli del
+                  suo funzionamento.
                 </Text>
               </CvCard>
             </View>
@@ -117,11 +144,11 @@ export default function QuantoSpendo() {
           <View style={styles.closingInner}>
             <View style={styles.closingPanel}>
               <Text style={styles.closingText}>
-                Il codice di QuantoSpendo è pubblico su GitHub.
+                Il codice di MicToText è pubblico su GitHub.
               </Text>
               <View style={styles.closingCtas}>
                 <ButtonLink
-                  href="https://github.com/FrancescoSposato/QuantoSpendo"
+                  href="https://github.com/FrancescoSposato/MicToText"
                   label="Vedi il repository"
                   external
                 ></ButtonLink>

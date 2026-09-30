@@ -37,14 +37,14 @@ Checklist di sviluppo del sito/curriculum personale. Documento vivo: verrà aggi
 - [ ] Eventuali immagini/screenshot dei progetti
 
 > Nota: preferibile tenere i progetti come schede con link esterni (demo + GitHub) invece di integrarli direttamente nel sito, per mantenerlo leggero e i progetti deployabili in autonomia.
-> Stato screenshot: presenti per "Questo sito portfolio" e "Project GoCare"; ancora mancanti per "QuantoSpendo" e "MyITSdiet" (riquadro immagine vuoto).
+> Stato screenshot: presenti per tutti i progetti ("Questo sito portfolio", "Project GoCare", "MicToText", "QuantoSpendo").
 
 ## Pagine progetto in dettaglio
 
 - [ ] `app/projects/this.js` — dettagli "Questo sito portfolio" (route creata, ScrollView vuoto)
 - [ ] `app/projects/gocare.js` — dettagli "Project GoCare" (route creata, ScrollView vuoto)
 - [ ] `app/projects/quantospendo.js` — dettagli "QuantoSpendo" (file vuoto, da scrivere da zero)
-- [ ] `app/projects/itsdiet.js` — dettagli "MyITSdiet" (file vuoto, da scrivere da zero)
+- [ ] `app/projects/mictotext.js` — dettagli "MicToText" (struttura e immagine inserite, restano da scrivere i paragrafi segnati con `[...]`)
 
 > Nota: pagina statica per ogni progetto invece di una route dinamica `[slug].js`, per poter avere contenuti liberi (immagini, testo lungo) diversi da progetto a progetto.
 
