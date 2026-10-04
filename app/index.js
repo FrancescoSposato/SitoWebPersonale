@@ -31,13 +31,6 @@ export default function Index() {
                 href="/projects"
                 label="Guarda i progetti"
               ></ButtonLink>
-              <ButtonLink
-                href="/Francesco_Sposato_CV.pdf"
-                label="Scarica il CV"
-                external
-                textStyle={{ color: Colors.ink.textSecondary }}
-                style={styles.buttonCV}
-              ></ButtonLink>
             </View>
           </View>
           <View style={styles.rightContainer}>
@@ -118,12 +111,6 @@ export default function Index() {
                 href="/curriculum"
                 label="Vai al curriculum"
               ></ButtonLink>
-              <ButtonLink
-                href="/contacts"
-                label="Scrivimi"
-                textStyle={{ color: Colors.ink.textSecondary }}
-                style={styles.buttonCV}
-              ></ButtonLink>
             </View>
           </View>
         </View>
@@ -176,11 +163,6 @@ const styles = StyleSheet.create({
     alignItems: "flex-start",
     gap: 12,
     paddingTop: 20,
-  },
-  buttonCV: {
-    backgroundColor: Colors.ink.surface,
-    borderWidth: 1,
-    borderColor: Colors.ink.border,
   },
   statsSection: {
     backgroundColor: Colors.light.bg,

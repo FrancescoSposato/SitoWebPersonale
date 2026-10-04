@@ -1,16 +1,65 @@
-import { useRef, useState } from "react";
-import { View, Text, StyleSheet, Pressable, Animated } from "react-native";
+import { useEffect, useRef, useState } from "react";
+import {
+  View,
+  Text,
+  StyleSheet,
+  Pressable,
+  Animated,
+  Modal,
+  useWindowDimensions,
+} from "react-native";
 import { Link, usePathname } from "expo-router";
 import { Colors } from "../constants/colors";
 import { Fonts } from "../constants/fonts";
 import { Layout } from "../constants/layout";
 import AnimatedLink from "./AnimatedLink";
 
+const PANEL_WIDTH = 300;
+const ARROW_SIZE = 14;
+
 function ContactButton() {
   const scale = useRef(new Animated.Value(1)).current;
   const opacity = useRef(new Animated.Value(1)).current;
   const lift = useRef(new Animated.Value(0)).current;
   const [hovered, setHovered] = useState(false);
+
+  const ctaRef = useRef(null);
+  const [anchor, setAnchor] = useState(null);
+  const { width: screenWidth } = useWindowDimensions();
+
+  const [open, setOpen] = useState(false);
+  const panelOpacity = useRef(new Animated.Value(0)).current;
+  const panelScale = useRef(new Animated.Value(0.96)).current;
+
+  useEffect(() => {
+    if (!open) return;
+    Animated.parallel([
+      Animated.timing(panelOpacity, {
+        toValue: 1,
+        duration: 160,
+        useNativeDriver: true,
+      }),
+      Animated.spring(panelScale, {
+        toValue: 1,
+        useNativeDriver: true,
+        speed: 40,
+        bounciness: 6,
+      }),
+    ]).start();
+  }, [open]);
+
+  const closePanel = () => {
+    Animated.timing(panelOpacity, {
+      toValue: 0,
+      duration: 120,
+      useNativeDriver: true,
+    }).start(({ finished }) => {
+      if (finished) {
+        setOpen(false);
+        panelScale.setValue(0.96);
+      }
+    });
+  };
 
   const pressIn = () => {
     Animated.spring(scale, {
@@ -60,9 +109,35 @@ function ContactButton() {
     }).start();
   };
 
+  const rawLeft = anchor ? anchor.x + anchor.width / 2 - PANEL_WIDTH / 2 : 0;
+  const panelLeft = Math.max(
+    12,
+    Math.min(rawLeft, screenWidth - PANEL_WIDTH - 12)
+  );
+  const arrowLeft = anchor
+    ? Math.max(
+        12,
+        Math.min(
+          anchor.x + anchor.width / 2 - panelLeft - ARROW_SIZE / 2,
+          PANEL_WIDTH - ARROW_SIZE - 12
+        )
+      )
+    : PANEL_WIDTH / 2 - ARROW_SIZE / 2;
+
   return (
-    <Link href="/contacts" asChild>
+    <>
       <Pressable
+        ref={ctaRef}
+        onPress={() => {
+          if (open) {
+            closePanel();
+            return;
+          }
+          ctaRef.current.measure((fx, fy, w, h, pageX, pageY) => {
+            setAnchor({ x: pageX, y: pageY, width: w, height: h });
+            setOpen(true);
+          });
+        }}
         onPressIn={pressIn}
         onPressOut={pressOut}
         onHoverIn={hoverIn}
@@ -78,7 +153,58 @@ function ContactButton() {
           <Text style={styles.ctaText}>Contattami</Text>
         </Animated.View>
       </Pressable>
-    </Link>
+
+      <Modal
+        visible={open}
+        transparent
+        animationType="none"
+        onRequestClose={closePanel}
+      >
+        <Pressable style={styles.backdrop} onPress={closePanel}></Pressable>
+        <Animated.View
+          style={[
+            styles.panel,
+            anchor && { top: anchor.y + anchor.height + 10, left: panelLeft },
+            {
+              opacity: panelOpacity,
+              transform: [{ scale: panelScale }],
+            },
+          ]}
+        >
+          <View style={[styles.arrow, { left: arrowLeft }]}></View>
+          <View style={styles.panelRow}>
+            <Text style={styles.panelLabel}>Email</Text>
+            <AnimatedLink
+              href="mailto:sposato.fs@outlook.it"
+              style={styles.panelValue}
+              hoveredStyle={styles.panelValueHovered}
+            >
+              sposato.fs@outlook.it
+            </AnimatedLink>
+          </View>
+          <View style={styles.panelRow}>
+            <Text style={styles.panelLabel}>Github</Text>
+            <AnimatedLink
+              href="https://github.com/FrancescoSposato"
+              style={styles.panelValue}
+              hoveredStyle={styles.panelValueHovered}
+            >
+              github.com/FrancescoSposato
+            </AnimatedLink>
+          </View>
+          <View style={styles.panelRow}>
+            <Text style={styles.panelLabel}>Linkedin</Text>
+            <AnimatedLink
+              href="https://linkedin.com/in/francesco-sposato-318992431"
+              style={styles.panelValue}
+              hoveredStyle={styles.panelValueHovered}
+            >
+              linkedin.com/in/francesco-sposato-318992431
+            </AnimatedLink>
+          </View>
+        </Animated.View>
+      </Modal>
+    </>
   );
 }
 
@@ -182,5 +308,51 @@ const styles = StyleSheet.create({
     fontFamily: Fonts.bodySemiBold,
     fontSize: 15,
     color: Colors.ink.onGradient,
+  },
+  backdrop: {
+    flex: 1,
+    backgroundColor: "rgba(10, 18, 32, 0.35)", // Colors.ink.bg al 35% di opacità
+  },
+  panel: {
+    position: "absolute",
+    width: PANEL_WIDTH,
+    backgroundColor: Colors.light.surface,
+    borderWidth: 1,
+    borderColor: Colors.light.border,
+    paddingVertical: 8,
+    shadowColor: Colors.light.text,
+    shadowOffset: { width: 0, height: 12 },
+    shadowOpacity: 0.16,
+    shadowRadius: 24,
+    elevation: 10,
+  },
+  arrow: {
+    position: "absolute",
+    top: -7,
+    width: ARROW_SIZE,
+    height: ARROW_SIZE,
+    backgroundColor: Colors.light.surface,
+    transform: [{ rotate: "45deg" }],
+  },
+  panelRow: {
+    paddingVertical: 10,
+    paddingHorizontal: 16,
+    gap: 3,
+  },
+  panelLabel: {
+    fontFamily: Fonts.mono,
+    fontSize: 11,
+    letterSpacing: 0.5,
+    textTransform: "uppercase",
+    color: Colors.light.textSecondary,
+  },
+  panelValue: {
+    fontFamily: Fonts.bodySemiBold,
+    fontSize: 15,
+    color: Colors.light.text,
+  },
+  panelValueHovered: {
+    color: Colors.light.primary,
+    textDecorationLine: "underline",
   },
 });

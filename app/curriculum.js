@@ -229,6 +229,13 @@ export default function Curriculum() {
                 </CvCard>
               </View>
             </View>
+            <View style={styles.downloadRow}>
+              <ButtonLink
+                href="/Francesco_Sposato_CV.pdf"
+                label="Scarica il CV"
+                external
+              ></ButtonLink>
+            </View>
           </View>
         </View>
       </View>
@@ -389,5 +396,10 @@ const styles = StyleSheet.create({
   cvCardItem: {
     flex: 1,
     minWidth: 220,
+  },
+  downloadRow: {
+    flexDirection: "row",
+    justifyContent: "center",
+    paddingTop: 34,
   },
 });

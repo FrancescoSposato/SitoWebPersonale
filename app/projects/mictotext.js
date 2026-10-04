@@ -36,17 +36,20 @@ export default function MicToText() {
             </View>
             <Text style={styles.cvSectionTitle}>Panoramica</Text>
             <Text style={styles.cardText}>
-              MicToText è un progetto nato dalla necessità di poter registrare
-              l'audio delle lezioni e far creare schemi e schede di studio in
-              maniera del tutto automatizzata dall'IA. Mi è venuta questa idea
-              in un periodo pieno di lezioni e studio, dove costruire uno schema
-              per un singolo argomento mi prendeva moltissimo tempo, e gli
-              argomenti da studiare erano tanti e vari: non riuscivo a creare
-              tutti quegli schemi in maniera veloce e funzionale senza
-              sacrificare tante ore. L'obiettivo in questo caso specifico non è
-              stato il codice: l'app è stata creata con il supporto completo
-              dell'IA. La necessità qui era creare uno strumento funzionante
-              velocemente. La priorità che fosse del tutto in locale.
+              MicToText è nato dalla necessità di registrare l'audio delle lezioni
+              e trasformarlo in automatico in schemi e schede di studio. L'idea è
+              arrivata in un periodo pieno di lezioni, quando costruire uno schema
+              anche per un solo argomento mi portava via moltissimo tempo — e gli
+              argomenti da studiare erano tanti e diversi tra loro.
+            </Text>
+            <Text style={styles.cardText}>
+              L'obiettivo qui non era il codice in sé: l'app è stata costruita con
+              il supporto quasi completo dell'IA, perché la priorità era avere in
+              fretta uno strumento che funzionasse davvero.
+            </Text>
+            <Text style={styles.cardText}>
+              L'unico vincolo non negoziabile era che girasse interamente in
+              locale, senza appoggiarsi a nessun servizio cloud.
             </Text>
             <View style={styles.imageSquareFull}>
               <Image
@@ -288,6 +291,7 @@ const styles = StyleSheet.create({
     fontFamily: Fonts.body,
     fontSize: 14,
     color: Colors.light.textSecondary,
+    lineHeight: 22,
   },
   cvCardItem: {
     flex: 1,
