@@ -176,6 +176,7 @@ const styles = StyleSheet.create({
     fontFamily: Fonts.body,
     color: Colors.ink.textSecondary,
     fontSize: 17,
+    lineHeight: 27,
   },
   overviewContainer: {
     width: "100%",
@@ -245,6 +246,7 @@ const styles = StyleSheet.create({
     fontFamily: Fonts.body,
     fontSize: 14,
     color: Colors.light.textSecondary,
+    lineHeight: 22,
   },
   cvCardItem: {
     flex: 1,

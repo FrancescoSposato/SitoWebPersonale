@@ -50,20 +50,26 @@ export default function GoCare() {
               questo si organizza ancora per telefono, tra caregiver familiari e
               associazioni di volontariato — senza uno storico, senza visibilità
               su chi ha già risposto, senza modo di tracciare lo stato del
-              viaggio in corso. GoCare digitalizza questo processo: un caregiver
-              registra la persona di cui si occupa e richiede un trasporto per
-              suo conto; la richiesta arriva automaticamente alle associazioni
-              accreditate competenti per zona, che possono accettarla o
-              rifiutarla; una volta presa in carico, lo stato del viaggio viene
-              aggiornato passo passo (partenza, arrivo, ritorno) e sia il
-              caregiver sia l'associazione hanno sempre visibilità completa su
-              richieste attive e storiche. Ho curato lo sviluppo del backend per
-              intero: dal disegno del modello di dominio (gestione
-              multi-caregiver per la stessa persona assistita, gestione degli
-              stati del viaggio, gestione dell'accreditamento delle
-              associazioni) alle scelte architetturali (autenticazione,
-              validazione, gestione degli errori), fino all'evoluzione della
-              struttura del progetto man mano che i requisiti si chiarivano.
+              viaggio in corso.
+            </Text>
+            <Text style={styles.cardText}>
+              GoCare digitalizza questo processo: un caregiver registra la
+              persona di cui si occupa e richiede un trasporto per suo conto; la
+              richiesta arriva automaticamente alle associazioni accreditate
+              competenti per zona, che possono accettarla o rifiutarla. Una
+              volta presa in carico, lo stato del viaggio viene aggiornato passo
+              passo (partenza, arrivo, ritorno) e sia il caregiver sia
+              l'associazione hanno sempre visibilità completa su richieste
+              attive e storiche.
+            </Text>
+            <Text style={styles.cardText}>
+              Ho curato lo sviluppo del backend per intero: dal disegno del
+              modello di dominio (gestione multi-caregiver per la stessa persona
+              assistita, gestione degli stati del viaggio, gestione
+              dell'accreditamento delle associazioni) alle scelte architetturali
+              (autenticazione, validazione, gestione degli errori), fino
+              all'evoluzione della struttura del progetto man mano che i
+              requisiti si chiarivano.
             </Text>
             <View style={styles.imageSquareFull}>
               <Image
@@ -82,19 +88,27 @@ export default function GoCare() {
               <CvCard style={styles.cvCardItem}>
                 <Text style={styles.cardTitle}>React Native + Expo Router</Text>
                 <Text style={styles.cardText}>
-                  [Il tuo contributo su questa parte / perché questa scelta]
+                  Il progetto è pensato per essere un app del tutto funzionante,
+                  che deve essere fluida a livello UX. Abbiamo optato per react
+                  native, che ci è sembrato la scelta piu giusta per conciliare
+                  questi due requisiti.
                 </Text>
               </CvCard>
               <CvCard style={styles.cvCardItem}>
                 <Text style={styles.cardTitle}>ASP.NET Core + EF Core</Text>
                 <Text style={styles.cardText}>
-                  [Il tuo contributo su questa parte / perché questa scelta]
+                  Abbiamo scelto .NET per la leggibilità di C#, e per la volontà
+                  di tutti i membri del gruppo di imparare a dominare questo
+                  linguaggio. Inoltre Entity Framework ci ha semplificato
+                  incredibilmente il lavoro di creazione del database, e Fluent
+                  Validation ci ha aiutato nella validazione delle richieste in
+                  maniera intuitiva.
                 </Text>
               </CvCard>
               <CvCard style={styles.cvCardItem}>
                 <Text style={styles.cardTitle}>PostgreSQL</Text>
                 <Text style={styles.cardText}>
-                  [Il tuo contributo su questa parte / perché questa scelta]
+                  Un sql open source, ricco di tipi di dati e scalabile.
                 </Text>
               </CvCard>
             </View>
@@ -111,30 +125,42 @@ export default function GoCare() {
               <CvCard style={styles.cvCardItem}>
                 <Text style={styles.cardTitle}>Cosa ha funzionato bene</Text>
                 <Text style={styles.cardText}>
-                  [Scrivi qui, es. la collaborazione col gruppo, la divisione
-                  dei compiti tra frontend e backend...]
+                  La scrittura di un buon documento iniziale elencante la
+                  maggior parte di flussi e casi d'uso ha reso la strutturazione
+                  di backend e frontend molto piu fluida e agevole: per ogni
+                  dubbio c'era un punto del documento che ci poteva guidare.
                 </Text>
               </CvCard>
               <CvCard style={styles.cvCardItem}>
                 <Text style={styles.cardTitle}>Difficoltà incontrate</Text>
-                <Text style={styles.cardText}>[Scrivi qui...]</Text>
+                <Text style={styles.cardText}>
+                  La scelta architetturale iniziale è stata molto complicata da
+                  scegliere. La circoscrizione di requisiti e casi d'uso ha
+                  preso piu' tempo del previsto. Le dinamiche di gruppo sono
+                  state, a volte, difficili da gestire. Nonostante tutto abbiamo
+                  portato a termine al meglio il progetto, sviluppando anche una
+                  buona dose di ascolto e pazienza.
+                </Text>
               </CvCard>
               <CvCard style={styles.cvCardItem}>
                 <Text style={styles.cardTitle}>
                   Cosa rifaresti diversamente
                 </Text>
-                <Text style={styles.cardText}>[Scrivi qui...]</Text>
+                <Text style={styles.cardText}>
+                  Punterei subito su un'architettura che so di poter gestire. Il
+                  pensiero di dover fare qualcosa di altamente scalabile e di
+                  alto livello fin da subito mi ha fatto andare fuoristrada,
+                  prendendomi tempo prezioso poi per rifattorizzare tutto in una
+                  soluzione più gestibile.
+                </Text>
               </CvCard>
             </View>
           </View>
         </View>
-
         <View style={styles.closingSection}>
           <View style={styles.closingInner}>
             <View style={styles.closingPanel}>
               <Text style={styles.closingText}>
-                {/* Quando avrai un repo pubblico per GoCare, aggiungi qui un
-                ButtonLink "Vedi il repository" come in this.js */}
                 Torna alla lista dei progetti per vedere gli altri lavori.
               </Text>
               <View style={styles.closingCtas}>
@@ -192,6 +218,7 @@ const styles = StyleSheet.create({
     fontFamily: Fonts.body,
     color: Colors.ink.textSecondary,
     fontSize: 17,
+    lineHeight: 27,
   },
   overviewContainer: {
     width: "100%",
@@ -274,6 +301,7 @@ const styles = StyleSheet.create({
     fontFamily: Fonts.body,
     fontSize: 14,
     color: Colors.light.textSecondary,
+    lineHeight: 22,
   },
   cvCardItem: {
     flex: 1,

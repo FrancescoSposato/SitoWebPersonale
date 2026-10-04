@@ -36,11 +36,13 @@ export default function QuantoSpendo() {
             <Text style={styles.cardText}>
               QuantoSpendo è stato il primo vero piccolo progetto costruito a
               livello scolastico. Quando ho creato questo progetto sapevo molto
-              poco di programmazione: pochi concetti e confusi. E' stato il
-              primo contatto con la necessità di creare folder structures
-              coerenti e pulite, oltre che il primo approccio con le interfacce
-              grafiche. La sua realizazzione ha cominciato a dare peso alle
-              conoscenze apprese fino a quel momento.
+              poco di programmazione: pochi concetti e confusi.
+            </Text>
+            <Text style={styles.cardText}>
+              E' stato il primo contatto con la necessità di creare folder
+              structures coerenti e pulite, oltre che il primo approccio con le
+              interfacce grafiche. La sua realizazzione ha cominciato a dare
+              peso alle conoscenze apprese fino a quel momento.
             </Text>
             <View style={styles.imageSquareFull}>
               <Image
@@ -179,6 +181,7 @@ const styles = StyleSheet.create({
     fontFamily: Fonts.body,
     color: Colors.ink.textSecondary,
     fontSize: 17,
+    lineHeight: 27,
   },
   overviewContainer: {
     width: "100%",
@@ -261,6 +264,7 @@ const styles = StyleSheet.create({
     fontFamily: Fonts.body,
     fontSize: 14,
     color: Colors.light.textSecondary,
+    lineHeight: 22,
   },
   cvCardItem: {
     flex: 1,

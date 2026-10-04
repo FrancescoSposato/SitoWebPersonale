@@ -209,6 +209,7 @@ const styles = StyleSheet.create({
     fontFamily: Fonts.body,
     color: Colors.ink.textSecondary,
     fontSize: 17,
+    lineHeight: 27,
   },
   overviewContainer: {
     width: "100%",

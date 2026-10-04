@@ -1,4 +1,4 @@
-import { StyleSheet, View, Text, ScrollView } from "react-native";
+import { StyleSheet, View, Text, ScrollView, Image } from "react-native";
 import { Colors } from "../constants/colors";
 import { Fonts } from "../constants/fonts";
 import { Layout } from "../constants/layout";
@@ -14,10 +14,10 @@ export default function Curriculum() {
       <View style={styles.hero}>
         <View style={styles.inner}>
           <View style={styles.imageContainer}>
-            {/* Slot per la foto: quando ce l'hai, sostituisci questo View con
-            <Image source={require("../assets/tuaFoto.jpg")} style={styles.photo} />
-            — styles.photo ha già le stesse dimensioni e l'angolo arrotondato pronti */}
-            <View style={styles.photoSlot}></View>
+            <Image
+              source={require("../assets/fotoProfilo.png")}
+              style={styles.photo}
+            ></Image>
           </View>
           <View style={styles.rightContainer}>
             <Kicker label="curriculum vitae"></Kicker>
@@ -176,15 +176,10 @@ export default function Curriculum() {
                     { backgroundColor: Colors.light.surface2 },
                   ]}
                 >
-                  <Text style={styles.sectionText}>
-                    2019 - 2025, periodi estivi
-                  </Text>
-                  <Text style={styles.cardTitle}>
-                    Attività agricole{" "}
-                    {"(Vendemmia, raccolta frutta, potatura)."}
-                  </Text>
+                  <Text style={styles.sectionText}>Settembre 2026 - in corso</Text>
+                  <Text style={styles.cardTitle}>Lavapiatti</Text>
                   <Text style={[styles.cardText, styles.cardTextBottom]}>
-                    Francia
+                    Perugia
                   </Text>
                 </CvCard>
                 <CvCard
@@ -209,10 +204,15 @@ export default function Curriculum() {
                     { backgroundColor: Colors.light.surface2 },
                   ]}
                 >
-                  <Text style={styles.sectionText}>giugno - agosto 2025</Text>
-                  <Text style={styles.cardTitle}>Montatore palchi</Text>
+                  <Text style={styles.sectionText}>
+                    2019 - 2025, periodi estivi
+                  </Text>
+                  <Text style={styles.cardTitle}>
+                    Attività agricole{" "}
+                    {"(Vendemmia, raccolta frutta, potatura)."}
+                  </Text>
                   <Text style={[styles.cardText, styles.cardTextBottom]}>
-                    Svizzera
+                    Francia
                   </Text>
                 </CvCard>
                 <CvCard
@@ -268,15 +268,6 @@ const styles = StyleSheet.create({
     maxWidth: 580,
     alignItems: "center",
     justifyContent: "center",
-  },
-  photoSlot: {
-    width: 240,
-    height: 240,
-    borderRadius: 120,
-    borderWidth: 2,
-    borderStyle: "dashed",
-    borderColor: Colors.ink.border,
-    backgroundColor: Colors.ink.surface2,
   },
   photo: {
     width: 240,

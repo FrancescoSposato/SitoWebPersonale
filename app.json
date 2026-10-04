@@ -23,6 +23,11 @@
       "bundler": "metro",
       "output": "static"
     },
-    "plugins": ["expo-router", "expo-splash-screen", "expo-font"]
+    "plugins": [
+      "expo-router",
+      "expo-splash-screen",
+      "expo-font",
+      "expo-status-bar"
+    ]
   }
 }
