@@ -411,9 +411,7 @@ const styles = StyleSheet.create({
     gap: 10,
   },
   cvCardItem: {
-    flexGrow: 1,
-    flexShrink: 1,
-    flexBasis: "auto",
+    flex: 1,
     minWidth: 220,
   },
   downloadRow: {
