@@ -57,11 +57,15 @@ const styles = StyleSheet.create({
     gap: 14, //applica spaziatura su tutti i figli, evita di mettere marginBottom a tutti
   },
   pCardBig: {
-    flex: 1.4,
+    flexGrow: 1.4,
+    flexShrink: 1,
+    flexBasis: "auto",
     minWidth: 280,
   },
   pCardSmall: {
-    flex: 1,
+    flexGrow: 1,
+    flexShrink: 1,
+    flexBasis: "auto",
     minWidth: 240,
   },
   pTagRow: {

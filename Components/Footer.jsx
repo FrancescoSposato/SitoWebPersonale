@@ -86,6 +86,7 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     gap: 20,
     justifyContent: "space-between",
+    marginLeft: "auto",
   },
   textLink: {
     fontFamily: Fonts.body,
