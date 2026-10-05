@@ -279,8 +279,10 @@ const styles = StyleSheet.create({
   },
   closingCtas: {
     flexDirection: "row",
+    flexWrap: "wrap",
     alignItems: "center",
     gap: 20,
+    flexShrink: 1,
   },
   sectionLink: {
     fontFamily: Fonts.mono,

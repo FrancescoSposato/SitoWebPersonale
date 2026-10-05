@@ -6,8 +6,11 @@ import {
   Pressable,
   Animated,
   Modal,
+  Platform,
   useWindowDimensions,
 } from "react-native";
+import { Ionicons } from "@expo/vector-icons";
+import { useSafeAreaInsets } from "react-native-safe-area-context";
 import { Link, usePathname } from "expo-router";
 import { Colors } from "../constants/colors";
 import { Fonts } from "../constants/fonts";
@@ -150,7 +153,11 @@ function ContactButton() {
             { opacity, transform: [{ scale }, { translateY: lift }] },
           ]}
         >
-          <Text style={styles.ctaText}>Contattami</Text>
+          {Platform.OS === "android" ? (
+            <Ionicons name="mail-outline" size={20} color={Colors.ink.onGradient} />
+          ) : (
+            <Text style={styles.ctaText}>Contattami</Text>
+          )}
         </Animated.View>
       </Pressable>
 
@@ -210,9 +217,10 @@ function ContactButton() {
 
 export default function Header() {
   const pathname = usePathname();
+  const insets = useSafeAreaInsets();
 
   return (
-    <View style={styles.bar}>
+    <View style={[styles.bar, { paddingTop: insets.top }]}>
       <View style={styles.inner}>
         <Text style={styles.brand}>Francesco Sposato</Text>
         <View style={styles.links}>
@@ -220,8 +228,17 @@ export default function Header() {
             href="/"
             style={[styles.link, pathname === "/" && styles.linkActive]}
             hoveredStyle={styles.linkHovered}
+            accessibilityLabel="Home"
           >
-            Home
+            {Platform.OS === "android" ? (
+              <Ionicons
+                name="home-outline"
+                size={22}
+                color={pathname === "/" ? Colors.ink.text : Colors.ink.textSecondary}
+              />
+            ) : (
+              "Home"
+            )}
           </AnimatedLink>
           <AnimatedLink
             href="/curriculum"
@@ -230,8 +247,17 @@ export default function Header() {
               pathname === "/curriculum" && styles.linkActive,
             ]}
             hoveredStyle={styles.linkHovered}
+            accessibilityLabel="Curriculum"
           >
-            Curriculum
+            {Platform.OS === "android" ? (
+              <Ionicons
+                name="document-text-outline"
+                size={22}
+                color={pathname === "/curriculum" ? Colors.ink.text : Colors.ink.textSecondary}
+              />
+            ) : (
+              "Curriculum"
+            )}
           </AnimatedLink>
           <AnimatedLink
             href="/projects"
@@ -240,8 +266,17 @@ export default function Header() {
               pathname === "/projects" && styles.linkActive,
             ]}
             hoveredStyle={styles.linkHovered}
+            accessibilityLabel="Progetti"
           >
-            Progetti
+            {Platform.OS === "android" ? (
+              <Ionicons
+                name="folder-open-outline"
+                size={22}
+                color={pathname === "/projects" ? Colors.ink.text : Colors.ink.textSecondary}
+              />
+            ) : (
+              "Progetti"
+            )}
           </AnimatedLink>
         </View>
         <ContactButton></ContactButton>

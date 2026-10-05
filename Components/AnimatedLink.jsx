@@ -11,6 +11,7 @@ export default function AnimatedLink({
   style,
   hoveredStyle,
   wrapperStyle,
+  accessibilityLabel,
 }) {
   const opacity = useRef(new Animated.Value(1)).current;
   const [hovered, setHovered] = useState(false);
@@ -38,6 +39,7 @@ export default function AnimatedLink({
     <Link href={href} asChild>
       <Pressable
         style={wrapperStyle}
+        accessibilityLabel={accessibilityLabel}
         onPressIn={pressIn}
         onPressOut={pressOut}
         onHoverIn={() => setHovered(true)}
