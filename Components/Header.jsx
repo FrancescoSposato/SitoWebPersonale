@@ -6,11 +6,9 @@ import {
   Pressable,
   Animated,
   Modal,
-  Platform,
   useWindowDimensions,
 } from "react-native";
 import { Ionicons } from "@expo/vector-icons";
-import { useSafeAreaInsets } from "react-native-safe-area-context";
 import { Link, usePathname } from "expo-router";
 import { Colors } from "../constants/colors";
 import { Fonts } from "../constants/fonts";
@@ -20,7 +18,7 @@ import AnimatedLink from "./AnimatedLink";
 const PANEL_WIDTH = 300;
 const ARROW_SIZE = 14;
 
-function ContactButton() {
+function ContactButton({ iconMode }) {
   const scale = useRef(new Animated.Value(1)).current;
   const opacity = useRef(new Animated.Value(1)).current;
   const lift = useRef(new Animated.Value(0)).current;
@@ -153,7 +151,7 @@ function ContactButton() {
             { opacity, transform: [{ scale }, { translateY: lift }] },
           ]}
         >
-          {Platform.OS === "android" ? (
+          {iconMode ? (
             <Ionicons name="mail-outline" size={20} color={Colors.ink.onGradient} />
           ) : (
             <Text style={styles.ctaText}>Contattami</Text>
@@ -217,10 +215,11 @@ function ContactButton() {
 
 export default function Header() {
   const pathname = usePathname();
-  const insets = useSafeAreaInsets();
+  const { width } = useWindowDimensions();
+  const iconMode = width < 700;
 
   return (
-    <View style={[styles.bar, { paddingTop: insets.top }]}>
+    <View style={styles.bar}>
       <View style={styles.inner}>
         <Text style={styles.brand}>Francesco Sposato</Text>
         <View style={styles.links}>
@@ -230,7 +229,7 @@ export default function Header() {
             hoveredStyle={styles.linkHovered}
             accessibilityLabel="Home"
           >
-            {Platform.OS === "android" ? (
+            {iconMode ? (
               <Ionicons
                 name="home-outline"
                 size={22}
@@ -249,7 +248,7 @@ export default function Header() {
             hoveredStyle={styles.linkHovered}
             accessibilityLabel="Curriculum"
           >
-            {Platform.OS === "android" ? (
+            {iconMode ? (
               <Ionicons
                 name="document-text-outline"
                 size={22}
@@ -268,7 +267,7 @@ export default function Header() {
             hoveredStyle={styles.linkHovered}
             accessibilityLabel="Progetti"
           >
-            {Platform.OS === "android" ? (
+            {iconMode ? (
               <Ionicons
                 name="folder-open-outline"
                 size={22}
@@ -279,7 +278,7 @@ export default function Header() {
             )}
           </AnimatedLink>
         </View>
-        <ContactButton></ContactButton>
+        <ContactButton iconMode={iconMode}></ContactButton>
       </View>
     </View>
   );

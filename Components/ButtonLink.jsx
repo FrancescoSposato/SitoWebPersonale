@@ -1,10 +1,8 @@
 import { useRef, useState } from "react";
-import { Platform, Text, StyleSheet, Pressable, Animated, Linking } from "react-native";
+import { Text, StyleSheet, Pressable, Animated, Linking } from "react-native";
 import { Link } from "expo-router";
 import { Colors } from "../constants/colors";
 import { Fonts } from "../constants/fonts";
-
-const SITE_URL = "https://francescosposato.dev";
 
 export default function ButtonLink({
   href,
@@ -82,14 +80,11 @@ export default function ButtonLink({
     </Animated.View>
   );
 
-  const resolvedHref =
-    Platform.OS !== "web" && href.startsWith("/") ? SITE_URL + href : href;
-
   if (external) {
     return (
       <Pressable
         style={styles.wrap}
-        onPress={() => Linking.openURL(resolvedHref)}
+        onPress={() => Linking.openURL(href)}
         onPressIn={pressIn}
         onPressOut={pressOut}
         onHoverIn={hoverIn}
