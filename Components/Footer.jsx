@@ -1,16 +1,16 @@
-import { Platform, View, StyleSheet, Text } from "react-native";
+import { View, StyleSheet, Text, useWindowDimensions } from "react-native";
 import { Ionicons } from "@expo/vector-icons";
 import { Colors } from "../constants/colors";
 import { Fonts } from "../constants/fonts";
 import { Layout } from "../constants/layout";
-import { useSafeAreaInsets } from "react-native-safe-area-context";
 import AnimatedLink from "./AnimatedLink";
 
 export default function Footer() {
-  const insets = useSafeAreaInsets();
+  const { width } = useWindowDimensions();
+  const iconMode = width < 700;
 
   return (
-    <View style={[styles.bar, { paddingBottom: insets.bottom }]}>
+    <View style={styles.bar}>
       <View style={styles.inner}>
         <Text style={styles.brand}>
           Francesco Sposato - studente e aspirante sviluppatore
@@ -22,7 +22,7 @@ export default function Footer() {
             hoveredStyle={styles.textLinkHovered}
             accessibilityLabel="Email"
           >
-            {Platform.OS === "android" ? (
+            {iconMode ? (
               <Ionicons name="mail-outline" size={24} color={Colors.ink.textSecondary} />
             ) : (
               "Email"
@@ -34,7 +34,7 @@ export default function Footer() {
             hoveredStyle={styles.textLinkHovered}
             accessibilityLabel="GitHub"
           >
-            {Platform.OS === "android" ? (
+            {iconMode ? (
               <Ionicons name="logo-github" size={24} color={Colors.ink.textSecondary} />
             ) : (
               "Github"
@@ -46,7 +46,7 @@ export default function Footer() {
             hoveredStyle={styles.textLinkHovered}
             accessibilityLabel="LinkedIn"
           >
-            {Platform.OS === "android" ? (
+            {iconMode ? (
               <Ionicons name="logo-linkedin" size={24} color={Colors.ink.textSecondary} />
             ) : (
               "Linkedin"

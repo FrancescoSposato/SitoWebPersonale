@@ -147,7 +147,9 @@ const styles = StyleSheet.create({
     gap: 32,
   },
   containerNarrow: {
-    flex: 0,
+    flexGrow: 0,
+    flexShrink: 0,
+    flexBasis: "auto",
     width: "100%",
     maxWidth: "100%",
   },
