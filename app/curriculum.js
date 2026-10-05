@@ -1,4 +1,4 @@
-import { StyleSheet, View, Text, ScrollView, Image } from "react-native";
+import { StyleSheet, View, Text, ScrollView, Image, useWindowDimensions } from "react-native";
 import { Colors } from "../constants/colors";
 import { Fonts } from "../constants/fonts";
 import { Layout } from "../constants/layout";
@@ -9,17 +9,20 @@ import Tags from "../Components/Tags";
 import Footer from "../Components/Footer";
 
 export default function Curriculum() {
+  const { width } = useWindowDimensions();
+  const isNarrow = width < 700;
+
   return (
     <ScrollView>
       <View style={styles.hero}>
-        <View style={styles.inner}>
-          <View style={styles.imageContainer}>
+        <View style={[styles.inner, isNarrow && styles.innerNarrow]}>
+          <View style={[styles.imageContainer, isNarrow && styles.imageContainerNarrow]}>
             <Image
               source={require("../assets/fotoProfilo.png")}
               style={styles.photo}
             ></Image>
           </View>
-          <View style={styles.rightContainer}>
+          <View style={[styles.rightContainer, isNarrow && styles.containerNarrow]}>
             <Kicker label="curriculum vitae"></Kicker>
             <Text style={styles.bigText}>Francesco Sposato</Text>
             <Text style={styles.smallText}>
@@ -47,7 +50,7 @@ export default function Curriculum() {
             <Text style={styles.cvSectionTitle}>
               Competenze, lingue e interessi
             </Text>
-            <View style={styles.cardSection}>
+            <View style={[styles.cardSection, isNarrow && styles.cardSectionNarrow]}>
               <CvCard
                 style={[
                   styles.cvCardItem,
@@ -169,7 +172,7 @@ export default function Curriculum() {
               Esperienze lavorative e altre attività
             </Text>
             <View style={[{ flexDirection: "column" }]}>
-              <View style={styles.cardSection}>
+              <View style={[styles.cardSection, isNarrow && styles.cardSectionNarrow]}>
                 <CvCard
                   style={[
                     styles.cvCardItem,
@@ -197,7 +200,7 @@ export default function Curriculum() {
                   </Text>
                 </CvCard>
               </View>
-              <View style={styles.cardSection}>
+              <View style={[styles.cardSection, isNarrow && styles.cardSectionNarrow]}>
                 <CvCard
                   style={[
                     styles.cvCardItem,
@@ -261,6 +264,22 @@ const styles = StyleSheet.create({
     alignItems: "center",
     backgroundColor: Colors.ink.surface,
     width: "100%",
+  },
+  innerNarrow: {
+    flexDirection: "column",
+    alignItems: "stretch",
+    gap: 24,
+  },
+  imageContainerNarrow: {
+    flex: 0,
+    width: "100%",
+    maxWidth: "100%",
+    alignItems: "center",
+  },
+  containerNarrow: {
+    flex: 0,
+    width: "100%",
+    maxWidth: "100%",
   },
   imageContainer: {
     flex: 1,
@@ -344,6 +363,9 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     gap: 14,
     paddingVertical: 15,
+  },
+  cardSectionNarrow: {
+    flexDirection: "column",
   },
   sectionText: {
     fontFamily: Fonts.mono,

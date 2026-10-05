@@ -1,5 +1,5 @@
 import { StatusBar } from "expo-status-bar";
-import { StyleSheet, Text, View } from "react-native";
+import { StyleSheet, Text, View, useWindowDimensions } from "react-native";
 import { Colors } from "../constants/colors";
 import { Fonts } from "../constants/fonts";
 import { Layout } from "../constants/layout";
@@ -13,11 +13,14 @@ import Footer from "../Components/Footer";
 import ProjectCard from "../Components/ProjectCard";
 
 export default function Index() {
+  const { width } = useWindowDimensions();
+  const isNarrow = width < 700;
+
   return (
     <ScrollView>
       <View style={styles.hero}>
-        <View style={styles.inner}>
-          <View style={styles.leftContainer}>
+        <View style={[styles.inner, isNarrow && styles.innerNarrow]}>
+          <View style={[styles.leftContainer, isNarrow && styles.containerNarrow]}>
             <Kicker label="Studente & aspirante sviluppatore"></Kicker>
             <Text style={styles.bigText}>
               Studente di coding presso ITS Umbria Academy.
@@ -33,7 +36,7 @@ export default function Index() {
               ></ButtonLink>
             </View>
           </View>
-          <View style={styles.rightContainer}>
+          <View style={[styles.rightContainer, isNarrow && styles.containerNarrow]}>
             <CodeAnimation></CodeAnimation>
           </View>
         </View>
@@ -69,7 +72,7 @@ export default function Index() {
               Tutti i progetti →
             </AnimatedLink>
           </View>
-          <View style={styles.projectCardsRow}>
+          <View style={[styles.projectCardsRow, isNarrow && styles.projectCardsRowNarrow]}>
             <ProjectCard
               variant="big"
               tags={["React Native", "Expo Router", "Web + Android"]}
@@ -137,6 +140,16 @@ const styles = StyleSheet.create({
     alignItems: "center",
     backgroundColor: Colors.ink.surface,
     width: "100%",
+  },
+  innerNarrow: {
+    flexDirection: "column-reverse",
+    alignItems: "stretch",
+    gap: 32,
+  },
+  containerNarrow: {
+    flex: 0,
+    width: "100%",
+    maxWidth: "100%",
   },
   leftContainer: {
     flex: 1,
@@ -243,6 +256,9 @@ const styles = StyleSheet.create({
   projectCardsRow: {
     flexDirection: "row",
     gap: 20,
+  },
+  projectCardsRowNarrow: {
+    flexDirection: "column",
   },
   blackViewSection: {
     backgroundColor: Colors.light.bg,

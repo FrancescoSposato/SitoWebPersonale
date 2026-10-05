@@ -4,9 +4,12 @@ import { Layout } from "../../constants/layout";
 import Footer from "../../Components/Footer";
 import Kicker from "../../Components/Kicker";
 import ProjectCard from "../../Components/ProjectCard";
-import { StyleSheet, View, Text, ScrollView, Image } from "react-native";
+import { StyleSheet, View, Text, ScrollView, Image, useWindowDimensions } from "react-native";
 
 export default function Projects() {
+  const { width } = useWindowDimensions();
+  const isNarrow = width < 700;
+
   return (
     <ScrollView contentContainerStyle={{ flexGrow: 1 }}>
       <View style={styles.hero}>
@@ -25,8 +28,8 @@ export default function Projects() {
       <View style={styles.projectInner}>
         <View style={styles.projectContainer}>
           <View style={styles.projectSection}>
-            <View style={styles.cardRow}>
-              <View style={styles.imageSquare}>
+            <View style={[styles.cardRow, isNarrow && styles.cardRowNarrow]}>
+              <View style={[styles.imageSquare, isNarrow && styles.imageSquareNarrow]}>
                 <Image
                   source={require("../../assets/react.png")}
                   style={styles.screenshot}
@@ -47,7 +50,7 @@ export default function Projects() {
 
         <View style={styles.projectContainer2}>
           <View style={styles.projectSection}>
-            <View style={styles.cardRow}>
+            <View style={[styles.cardRow, isNarrow && styles.cardRowNarrow]}>
               <ProjectCard
                 tags={[
                   "React Native",
@@ -64,7 +67,7 @@ export default function Projects() {
                 linkHref={"/projects/gocare"}
                 linkLabel={"Vai ai dettagli →"}
               ></ProjectCard>
-              <View style={styles.imageSquare}>
+              <View style={[styles.imageSquare, isNarrow && styles.imageSquareNarrow]}>
                 <Image
                   source={require("../../assets/care_wheel.png")}
                   style={styles.screenshot}
@@ -75,8 +78,8 @@ export default function Projects() {
         </View>
         <View style={styles.projectContainer}>
           <View style={styles.projectSection}>
-            <View style={styles.cardRow}>
-              <View style={styles.imageSquare}>
+            <View style={[styles.cardRow, isNarrow && styles.cardRowNarrow]}>
+              <View style={[styles.imageSquare, isNarrow && styles.imageSquareNarrow]}>
                 <Image
                   source={require("../../assets/micToText.png")}
                   style={styles.screenshot}
@@ -96,7 +99,7 @@ export default function Projects() {
         </View>
         <View style={styles.projectContainer2}>
           <View style={styles.projectSection}>
-            <View style={styles.cardRow}>
+            <View style={[styles.cardRow, isNarrow && styles.cardRowNarrow]}>
               <ProjectCard
                 tags={["JAVA", "Java.Fx"]}
                 title="QuantoSpendo"
@@ -105,7 +108,7 @@ export default function Projects() {
                 linkHref={"/projects/quantospendo"}
                 linkLabel={"Vai ai dettagli →"}
               ></ProjectCard>
-              <View style={styles.imageSquare}>
+              <View style={[styles.imageSquare, isNarrow && styles.imageSquareNarrow]}>
                 <Image
                   source={require("../../assets/quantoSpendo.png")}
                   style={styles.screenshot}
@@ -166,6 +169,14 @@ const styles = StyleSheet.create({
   cardRow: {
     flexDirection: "row",
     gap: 10,
+  },
+  cardRowNarrow: {
+    flexDirection: "column",
+    gap: 16,
+  },
+  imageSquareNarrow: {
+    width: "100%",
+    aspectRatio: 4 / 3,
   },
   imageSquare: {
     width: 400, // prima era solo maxWidth: 400 — ora è una larghezza definita, non calcolata dal contenuto,
