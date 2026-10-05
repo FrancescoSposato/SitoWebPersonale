@@ -112,7 +112,8 @@ const styles = StyleSheet.create({
     color: Colors.light.accent,
   },
   pLinkWrap: {
-    marginTop: "auto",
+    alignSelf: "flex-start",
+    paddingTop: 4,
   },
   pLink: {
     fontFamily: Fonts.mono,
