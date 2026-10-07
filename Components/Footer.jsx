@@ -12,9 +12,12 @@ export default function Footer() {
   return (
     <View style={styles.bar}>
       <View style={styles.inner}>
-        <Text style={styles.brand}>
-          Francesco Sposato - studente e aspirante sviluppatore
-        </Text>
+        <View style={[styles.brand, !iconMode && styles.brandWide]}>
+          <Text style={styles.brandName}>Francesco Sposato</Text>
+          <Text style={styles.brandRole}>
+            {(!iconMode ? "- " : "") + "studente e aspirante sviluppatore"}
+          </Text>
+        </View>
         <View style={[styles.links, iconMode && styles.linksCentered]}>
           <AnimatedLink
             href="mailto:sposato.fs@outlook.it"
@@ -77,10 +80,23 @@ const styles = StyleSheet.create({
     paddingVertical: 16,
   },
   brand: {
+    flexShrink: 1,
+    gap: 2,
+  },
+  brandWide: {
+    flexDirection: "row",
+    alignItems: "baseline",
+    gap: 6,
+  },
+  brandName: {
     fontFamily: Fonts.monoMedium,
     fontSize: 15,
     color: Colors.ink.text,
-    flexShrink: 1,
+  },
+  brandRole: {
+    fontFamily: Fonts.body,
+    fontSize: 13,
+    color: Colors.ink.textSecondary,
   },
   links: {
     flexDirection: "row",

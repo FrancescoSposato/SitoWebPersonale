@@ -104,10 +104,6 @@ export default function Index() {
               <Text style={styles.blackViewTitle}>
                 Vuoi il quadro completo del mio percorso?
               </Text>
-              <Text style={styles.blackViewText}>
-                Curriculum, competenze tecniche e percorso formativo in un'unica
-                pagina.
-              </Text>
             </View>
             <View style={styles.blackViewCtas}>
               <ButtonLink

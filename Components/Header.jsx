@@ -205,7 +205,7 @@ function ContactButton({ iconMode }) {
               style={styles.panelValue}
               hoveredStyle={styles.panelValueHovered}
             >
-              linkedin.com/in/francesco-sposato-318992431
+              linkedin.com/FrancescoSposato
             </AnimatedLink>
           </View>
         </Animated.View>
