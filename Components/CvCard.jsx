@@ -19,7 +19,8 @@ const styles = StyleSheet.create({
   },
   narrow: {
     flexGrow: 0,
-    flexShrink: 0,
+    flexShrink: 1,
     flexBasis: "auto",
+    width: "100%",
   },
 });

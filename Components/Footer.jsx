@@ -15,7 +15,7 @@ export default function Footer() {
         <Text style={styles.brand}>
           Francesco Sposato - studente e aspirante sviluppatore
         </Text>
-        <View style={styles.links}>
+        <View style={[styles.links, iconMode && styles.linksCentered]}>
           <AnimatedLink
             href="mailto:sposato.fs@outlook.it"
             style={styles.textLink}
@@ -86,7 +86,11 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     gap: 20,
     justifyContent: "space-between",
-    marginLeft: "auto",
+  },
+  linksCentered: {
+    marginLeft: 0,
+    width: "100%",
+    justifyContent: "center",
   },
   textLink: {
     fontFamily: Fonts.body,
