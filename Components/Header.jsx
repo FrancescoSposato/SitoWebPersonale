@@ -6,6 +6,7 @@ import {
   Pressable,
   Animated,
   Modal,
+  Image,
   useWindowDimensions,
 } from "react-native";
 import { Ionicons } from "@expo/vector-icons";
@@ -221,7 +222,10 @@ export default function Header() {
   return (
     <View style={styles.bar}>
       <View style={styles.inner}>
-        <Text style={styles.brand}>Francesco Sposato</Text>
+        <View style={styles.brandRow}>
+          <Image source={require("../assets/favicon.png")} style={styles.brandIcon}></Image>
+          {!iconMode && <Text style={styles.brand}>Francesco Sposato</Text>}
+        </View>
         <View style={styles.links}>
           <AnimatedLink
             href="/"
@@ -319,6 +323,16 @@ const styles = StyleSheet.create({
   },
   linkHovered: {
     color: Colors.ink.text,
+  },
+  brandRow: {
+    flexDirection: "row",
+    alignItems: "center",
+    gap: 10,
+  },
+  brandIcon: {
+    width: 32,
+    height: 32,
+    borderRadius: 8,
   },
   brand: {
     fontFamily: Fonts.monoMedium,
